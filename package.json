@@ -1,0 +1,50 @@
+{
+    "name": "nextui-hook-form",
+    "version": "0.0.1",
+    "description": "Form elements build with NextUI and React Hook Form",
+    "types": "./dist/index.d.ts",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "files": [
+        "dist"
+    ],
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        }
+    },
+    "sideEffects": false,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/teebarg/nextui-hook-form.git"
+    },
+    "scripts": {
+        "build": "tsc",
+        "build:watch": "tsc --watch",
+        "prepare": "npm run build"
+    },
+    "keywords": [
+        "react",
+        "icons",
+        "svgs",
+        "typescript"
+    ],
+    "author": {
+        "name": "Adeniyi Aderounmu",
+        "email": "teebarg01@gmail.com",
+        "url": "http://niyi.com.ng/"
+    },
+    "license": "ISC",
+    "dependencies": {
+        "@nextui-org/react": "^2.4.1",
+        "react-icons": "github:teebarg/react-icons"
+    },
+    "devDependencies": {
+        "@types/node": "^20.14.6",
+        "@types/react": "^18.3.3",
+        "react": "^18.3.1",
+        "react-hook-form": "^7.51.5",
+        "typescript": "^5.4.5"
+    }
+}
