@@ -1,10 +1,10 @@
 import { useId } from "react";
 import * as React from "react";
-import { EmailProps } from "src/types";
+import { FieldProps } from "src/types";
 import { Select as NUISelect, SelectItem } from "@nextui-org/react";
 import { Controller } from "react-hook-form";
 
-const Select: React.FC<EmailProps> = ({ name, required, error, control, register, selectionMode = "single", options = [], ...props }) => {
+const Select: React.FC<FieldProps> = ({ name, required, error, control, register, selectionMode = "single", options = [], ...props }) => {
     const id = useId();
 
     const inputProps = {

@@ -1,9 +1,9 @@
 import { useId } from "react";
 import * as React from "react";
 import { Input as NUInput } from "@nextui-org/input";
-import { EmailProps, Rules } from "src/types";
+import { FieldProps, Rules } from "src/types";
 
-const Input: React.FC<EmailProps> = ({ name, required, error, rules, register, ...props }) => {
+const Input: React.FC<FieldProps> = ({ name, required, error, rules, register, ...props }) => {
     const id = useId();
     const formRules: Rules = {};
     const { minLength, maxLength, pattern } = rules || {};

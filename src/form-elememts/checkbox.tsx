@@ -1,21 +1,27 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from "react";
 import { Controller } from "react-hook-form";
-import { Checkbox } from "@nextui-org/react";
+import { Checkbox as NUICheckBox } from "@nextui-org/react";
 import { FieldProps } from "src/types";
 
-export function CheckBox({ name, label, className, control, color = "default", size = "md" }: FieldProps) {
+const CheckBox: React.FC<FieldProps> = ({ name, label, required, error, control, register, ...props }) => {
+    const inputProps = {
+        name,
+        isRequired: Boolean(required),
+        isInvalid: Boolean(error),
+        ...props,
+    };
+
     return (
-        <div className={className}>
-            <Controller
-                control={control}
-                name={name}
-                render={({ field: { onChange, value } }) => (
-                    <Checkbox onChange={onChange} defaultSelected={value} color={color} size={size}>
-                        {label}
-                    </Checkbox>
-                )}
-            />
-        </div>
+        <Controller
+            control={control}
+            name={name}
+            render={({ field: { onChange, value } }) => (
+                <NUICheckBox onChange={onChange} defaultSelected={value} {...inputProps}>
+                    {label}
+                </NUICheckBox>
+            )}
+        />
     );
-}
+};
+
+export { CheckBox };

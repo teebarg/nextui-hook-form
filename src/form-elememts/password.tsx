@@ -1,11 +1,10 @@
 import { useId } from "react";
 import * as React from "react";
 import { Input } from "@nextui-org/input";
-import { EmailProps, Rules } from "src/types";
+import { FieldProps, Rules } from "src/types";
 import { EyeFilledIcon, EyeSlashFilledIcon } from "react-icons";
 
-const Password: React.FC<EmailProps> = ({ name, required, error, rules, register, ...props }) => {
-
+const Password: React.FC<FieldProps> = ({ name, required, error, rules, register, ...props }) => {
     const id = useId();
     const [isVisible, setIsVisible] = React.useState(false);
     const toggleVisibility = () => setIsVisible(!isVisible);

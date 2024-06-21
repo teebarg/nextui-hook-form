@@ -8,3 +8,4 @@ export { Select } from "./form-elememts/select";
 export { Date } from "./form-elememts/date";
 export { Number } from "./form-elememts/number";
 export { Input } from "./form-elememts/input";
+export { Radio } from "./form-elememts/radio";
