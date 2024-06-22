@@ -19,10 +19,17 @@
         "type": "git",
         "url": "git+https://github.com/teebarg/nextui-hook-form.git"
     },
+    "bugs": {
+        "url": "https://github.com/teebarg/nextui-hook-form/issues",
+        "email": "teebarg01@gmail.com"
+    },
     "scripts": {
         "build": "tsc",
         "build:watch": "tsc --watch",
-        "prepare": "npm run build"
+        "prepare": " husky install && npm run build",
+        "prettier:check": "prettier \"*.{js,jsx,ts,tsx,json,css,scss,md}\" --write",
+        "lint:check": "eslint --max-warnings=0 \"*.{js,jsx,ts,tsx,json}\" --fix",
+        "test": "echo `This is test`"
     },
     "keywords": [
         "react",
@@ -43,8 +50,27 @@
     "devDependencies": {
         "@types/node": "^20.14.6",
         "@types/react": "^18.3.3",
+        "@typescript-eslint/eslint-plugin": "^7.13.1",
+        "@typescript-eslint/parser": "^7.13.1",
+        "eslint": "^8.55.0",
+        "eslint-plugin-react": "^7.34.3",
+        "husky": "^8.0.3",
+        "prettier": "3.1.1",
         "react": "^18.3.1",
         "react-hook-form": "^7.51.5",
         "typescript": "^5.4.5"
+    },
+    "lint-staged": {
+        "*.{js,jsx,ts,tsx,json,css,scss,md}": [
+            "prettier --write"
+        ],
+        "*.{js,jsx,ts,tsx,json}": [
+            "npm run lint:check"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
     }
 }

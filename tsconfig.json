@@ -7,7 +7,7 @@
         "jsx": "react",
         "skipLibCheck": true,
         "moduleResolution": "node",
-        "baseUrl": ".",
+        "baseUrl": "."
     },
     "include": ["src"]
 }
