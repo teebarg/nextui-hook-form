@@ -3,7 +3,7 @@ import { FieldProps } from "src/types";
 import { RadioGroup, Radio as RadioItem } from "@nextui-org/react";
 import { Controller } from "react-hook-form";
 
-const Radio: React.FC<FieldProps> = ({ name, required, error, control, register, onChange, options = [], ...props }) => {
+const Radio: React.FC<FieldProps> = ({ name, required, error, control, options = [], ...props }) => {
     const inputProps = {
         name,
         isRequired: Boolean(required),
