@@ -1,15 +1,11 @@
-import { useId } from "react";
 import * as React from "react";
 import { FieldProps } from "src/types";
 import { DateInput } from "@nextui-org/react";
 import { Controller } from "react-hook-form";
 import { CalendarDate, parseDate } from "@internationalized/date";
 
-const Date: React.FC<FieldProps> = ({ name, required, error, control, register, selectionMode = "single", options = [], ...props }) => {
-    const id = useId();
-
+const Date: React.FC<FieldProps> = ({ name, required, error, control, ...props }) => {
     const inputProps = {
-        id,
         name,
         isRequired: Boolean(required),
         isInvalid: Boolean(error),
@@ -19,7 +15,6 @@ const Date: React.FC<FieldProps> = ({ name, required, error, control, register, 
 
     return (
         <Controller
-            key={id}
             control={control}
             name={name}
             render={({ field: { value } }) => (
