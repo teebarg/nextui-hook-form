@@ -1,12 +1,17 @@
 import * as React from "react";
-import { FieldProps } from "src/types";
 import { Controller } from "react-hook-form";
 import { Switch as NUISwitch } from "@nextui-org/react";
 
-const Switch: React.FC<FieldProps> = ({ name, label, required, error, control, ...props }) => {
+interface props {
+    name: string;
+    label: string;
+    error?: { message?: string };
+    [key: string]: any;
+}
+
+const Switch: React.FC<props> = ({ name, label, error, control, ...props }) => {
     const inputProps = {
         name,
-        isRequired: Boolean(required),
         isInvalid: Boolean(error),
         ...props,
     };
