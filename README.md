@@ -7,38 +7,45 @@ Beautiful form elements built with NextUi and React Hook Form
 You can install the package from the GitHub repository using npm or yarn:
 
 ```bash
-npm install github:teebarg/nextui-hook-form
-yarn add github:teebarg/nextui-hook-form
+npm install nextui-hook-form
+yarn add nextui-hook-form
 ```
 
 ## Usage
 
 Import the element you need from the package:
 
-```jsx
-import { CheckBox } from "nextui-hook-form";
-```
+Using with register
 
-Then, use the icons as React components in your application:
+```jsx
+import { Input } from "nextui-hook-form";
+```
 
 ```jsx
 function App() {
     return (
         <div>
-            <CheckBox />
+            <Input name="name" label="Name" placeholder="Ex. John....." register={register} error={errors?.name} required classNames={inputClass} />
         </div>
     );
 }
 ```
 
-### Props
+Using with control
 
-The icon components accept the following props:
+```jsx
+import { CheckBox } from "nextui-hook-form";
+```
 
--   size (number, optional): The size of the icon in pixels. If not provided, the default size of 36 will be used.
--   width (number, optional): The width of the icon in pixels.
--   height (number, optional): The height of the icon in pixels.
--   Any other valid SVG props (e.g., fill, stroke, className, etc.).
+```jsx
+function App() {
+    return (
+        <div>
+            <CheckBox name="status" label="Status" control={control} required />
+        </div>
+    );
+}
+```
 
 ## Development
 
