@@ -9,3 +9,4 @@ export { Date } from "./form-elememts/date";
 export { Number } from "./form-elememts/number";
 export { Input } from "./form-elememts/input";
 export { Radio } from "./form-elememts/radio";
+export { AutoComplete } from "./form-elememts/auto-complete";
