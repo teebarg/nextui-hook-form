@@ -12,7 +12,7 @@ type Item = {
     description: string;
 };
 
-const AutoComplete: React.FC<FieldProps> = ({ url, name, label, required, error, control, ...props }) => {
+const AutoComplete: React.FC<FieldProps & { url: string }> = ({ url, name, label, required, error, control, ...props }) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const list = useAsyncList<any>({
         async load({ signal, filterText }) {
@@ -29,6 +29,7 @@ const AutoComplete: React.FC<FieldProps> = ({ url, name, label, required, error,
         label,
         isRequired: Boolean(required),
         isInvalid: Boolean(error),
+        errorMessage: error?.message,
         ...props,
     };
 
@@ -42,11 +43,11 @@ const AutoComplete: React.FC<FieldProps> = ({ url, name, label, required, error,
                     inputValue={list.filterText}
                     isLoading={list.isLoading}
                     items={list.items}
-                    defaultSelectedKey={value}
+                    defaultInputValue={value}
                     onSelectionChange={onChange}
                     onInputChange={list.setFilterText}
                 >
-                    {(item: Item) => <AutocompleteItem key={item.id}>{item.name}</AutocompleteItem>}
+                    {(item: Item) => <AutocompleteItem key={item.value || item.id || item.name}>{item.name || item.label}</AutocompleteItem>}
                 </Autocomplete>
             )}
         />
