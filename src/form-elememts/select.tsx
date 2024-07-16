@@ -13,15 +13,17 @@ const Select: React.FC<FieldProps> = ({ name, required, error, control, selectio
     };
 
     return (
-        <Controller
-            control={control}
-            name={name}
-            render={({ field: { onChange, value } }) => (
-                <NUISelect {...inputProps} onChange={onChange} selectedKeys={value} selectionMode={selectionMode}>
-                    {options?.map((item: { value: string; label: string }) => <SelectItem key={item.value}>{item.label}</SelectItem>)}
-                </NUISelect>
-            )}
-        />
+        <React.Fragment>
+            <Controller
+                control={control}
+                name={name}
+                render={({ field: { onChange, value } }) => (
+                    <NUISelect {...inputProps} onSelectionChange={onChange} selectedKeys={value} selectionMode={selectionMode}>
+                        {options?.map((item: { value: string; label: string }) => <SelectItem key={item.value}>{item.label}</SelectItem>)}
+                    </NUISelect>
+                )}
+            />
+        </React.Fragment>
     );
 };
 
