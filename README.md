@@ -23,9 +23,22 @@ import { Input } from "nextui-hook-form";
 
 ```jsx
 function App() {
+    const {
+        register,
+        formState: { errors },
+    } = useForm < Inputs > {};
+
     return (
         <div>
-            <Input name="name" label="Name" placeholder="Ex. John....." register={register} error={errors?.name} required classNames={inputClass} />
+            <Input
+                name="name"
+                label="Name"
+                placeholder="Ex. John Doe"
+                register={register}
+                error={errors?.name}
+                required
+                classNames={"text-gray-500"}
+            />
         </div>
     );
 }
@@ -39,9 +52,14 @@ import { CheckBox } from "nextui-hook-form";
 
 ```jsx
 function App() {
+    const {
+        control,
+        formState: { errors },
+    } = useForm < Inputs > {};
+
     return (
         <div>
-            <CheckBox name="status" label="Status" control={control} required />
+            <Select name="country" label="Country" control={control} options={[]} error={errors?.country} selectionMode="multiple" />
         </div>
     );
 }
