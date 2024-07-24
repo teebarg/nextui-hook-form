@@ -1,6 +1,6 @@
 {
     "name": "nextui-hook-form",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Form elements build with NextUI and React Hook Form",
     "types": "dist/index.d.ts",
     "main": "dist/index.js",
